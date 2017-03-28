@@ -11,8 +11,8 @@
     <TextView
         android:id="@+id/destinationHeadText"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.07"
+        android:layout_height="wrap_content"
+        android:layout_weight="9.89"
         android:text="Displaying lines for stop " />
 
     <Space
@@ -45,7 +45,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/numStops"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:ems="10"
@@ -54,10 +54,22 @@
         android:textAlignment="center" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/createOneTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#3DD046"
         android:text="Create One Time Alert" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+    <Button
+        android:id="@+id/createRecurring"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F1C331"
+        android:text="Create Recurring Alert" />
 
     <FrameLayout
         android:id="@+id/content"

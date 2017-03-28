@@ -3,6 +3,8 @@ package edu.pitt.cs.cs1635.anp147.sleepycommuters;
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -25,6 +27,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        final Intent intent = getIntent();
+        if (intent.hasExtra("oneTimeCreated"))
+        {
+            Toast.makeText(MapsActivity.this, "One time alert created! We'll alert you " + intent.getStringExtra("numberOfStops") + " stop(s) before your destination", Toast.LENGTH_LONG).show();
+        }
     }
 
 

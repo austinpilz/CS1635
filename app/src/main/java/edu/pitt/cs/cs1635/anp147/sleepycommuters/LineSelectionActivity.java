@@ -26,12 +26,8 @@ public class LineSelectionActivity extends AppCompatActivity {
 
 
         final Intent intent = getIntent();
-
-        setContentView(R.layout.activity_line_selection);
-        TextView textView = (TextView) findViewById(R.id.lineSelectionStopName);
+        TextView textView = (TextView) findViewById(R.id.lineSelectionHeader);
         textView.setText("Showing lines for stop " + intent.getStringExtra("stopName"));
-
-        setContentView(R.layout.activity_line_selection);
 
         lv = (ListView) findViewById(R.id.lineSelectList);
 
