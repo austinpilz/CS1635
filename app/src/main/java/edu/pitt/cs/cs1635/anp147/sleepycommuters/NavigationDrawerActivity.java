@@ -13,9 +13,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class NavigationDrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private ListView lv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +54,40 @@ public class NavigationDrawerActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+
+        //homeRecList
+        lv = (ListView) findViewById(R.id.homeRecList);
+
+        // Instanciating an array list (you don't need to do this,
+        // you already have yours).
+        List<String> your_array_list = new ArrayList<String>();
+        your_array_list.add("8:00AM | Work 1");
+
+        // This is the array adapter, it takes the context of the activity as a
+        // first parameter, the type of list view as a second parameter and your
+        // array as a third parameter.
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_list_item_1,
+                your_array_list );
+
+        lv.setAdapter(arrayAdapter);
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> adapter, View v, int position,
+                                    long arg3){
+                String value = (String)adapter.getItemAtPosition(position);
+
+                Intent newIntent = new Intent(NavigationDrawerActivity.this,MapsActivity.class);
+                newIntent.putExtra("recBegin", value);
+                startActivity(newIntent);
+            }
+        });
+
+
     }
 
     @Override

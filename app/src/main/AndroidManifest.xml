@@ -27,10 +27,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RecurringListActivity"
-            android:label="@string/title_activity_recurring_list"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".LineSelectionActivity"
             android:label="@string/title_activity_line_selection" />
         <!--
@@ -48,9 +44,15 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".DestinationSelectActivity"
-            android:label="Destination Select"/>
-        <activity android:name=".RecurringEditActivity"></activity>
+        <activity
+            android:name=".DestinationSelectActivity"
+            android:label="Destination Select" />
+        <activity android:name=".RecurringEditActivity" />
+        <activity
+            android:name=".RecurringListActivity"
+            android:label="Recurring Alerts">
+
+        </activity>
     </application>
 
 </manifest>

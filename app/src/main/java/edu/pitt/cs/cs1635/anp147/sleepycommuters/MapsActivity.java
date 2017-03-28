@@ -57,6 +57,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     });
             alertDialog.show();
         }
+        else if (intent.hasExtra("recBegin"))
+        {
+            AlertDialog alertDialog = new AlertDialog.Builder(MapsActivity.this).create();
+            alertDialog.setTitle("Alert Activated");
+            alertDialog.setMessage("Your recurring alert has been activated! We'll let you know when to get off based on your settings");
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Okay",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alertDialog.show();
+        }
     }
 
 
