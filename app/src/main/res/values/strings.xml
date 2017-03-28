@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Sleepy Commuters</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_map_display">MapDisplayActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_recurring_list">Recurring Schedules</string>
+    <string name="title_activity_line_selection">Line Selection</string>
+    <string name="title_activity_maps">Map</string>
+</resources>
