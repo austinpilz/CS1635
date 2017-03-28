@@ -2,13 +2,14 @@ package edu.pitt.cs.cs1635.anp147.sleepycommuters;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MenuItem;
+
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,7 @@ public class LineSelectionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_line_selection);
 
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
 
         setContentView(R.layout.activity_line_selection);
         TextView textView = (TextView) findViewById(R.id.lineSelectionStopName);
@@ -51,6 +52,19 @@ public class LineSelectionActivity extends AppCompatActivity {
                 your_array_list );
 
         lv.setAdapter(arrayAdapter);
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> adapter, View v, int position,
+                                    long arg3){
+                String value = (String)adapter.getItemAtPosition(position);
+
+                Intent newIntent = new Intent(LineSelectionActivity.this,DestinationSelectActivity.class);
+                newIntent.putExtra("stopName", intent.getStringExtra("stopName"));
+                newIntent.putExtra("line", value);
+                startActivity(newIntent);
+            }
+        });
     }
 
 }
