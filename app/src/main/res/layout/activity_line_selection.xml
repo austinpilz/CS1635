@@ -8,17 +8,23 @@
     android:orientation="vertical"
     tools:context="edu.pitt.cs.cs1635.anp147.sleepycommuters.LineSelectionActivity">
 
+    <TextView
+        android:id="@+id/lineSelectionStopName"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.07"
+        android:text="Displaying lines for stop " />
+
     <FrameLayout
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <TextView
-            android:id="@+id/lineSelectionStopName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Displaying lines for stop " />
+        <ListView
+            android:id="@+id/lineSelectList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </FrameLayout>
 

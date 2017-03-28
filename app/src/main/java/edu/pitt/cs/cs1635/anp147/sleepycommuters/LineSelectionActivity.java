@@ -6,11 +6,17 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class LineSelectionActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
+    private ListView lv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +29,28 @@ public class LineSelectionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_line_selection);
         TextView textView = (TextView) findViewById(R.id.lineSelectionStopName);
         textView.setText("Showing lines for stop " + intent.getStringExtra("stopName"));
+
+        setContentView(R.layout.activity_line_selection);
+
+        lv = (ListView) findViewById(R.id.lineSelectList);
+
+        // Instanciating an array list (you don't need to do this,
+        // you already have yours).
+        List<String> your_array_list = new ArrayList<String>();
+        your_array_list.add("71A | Dahntahn");
+        your_array_list.add("71B | Elmsworth");
+        your_array_list.add("71C | East Carson");
+        your_array_list.add("71D | South Side");
+
+        // This is the array adapter, it takes the context of the activity as a
+        // first parameter, the type of list view as a second parameter and your
+        // array as a third parameter.
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_list_item_1,
+                your_array_list );
+
+        lv.setAdapter(arrayAdapter);
     }
 
 }
