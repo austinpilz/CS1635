@@ -54,9 +54,8 @@ public class DestinationSelectActivity extends AppCompatActivity {
             public void onClick(View v) {
                 EditText mEdit = (EditText)findViewById(R.id.numStops);
 
-                Intent myIntent = new Intent(DestinationSelectActivity.this, RecurringListActivity.class);
-                myIntent.putExtra("recurringCreated", ""); //Optional parameters
-                myIntent.putExtra("numberOfStops", mEdit.getText().toString()); //Optional parameters
+                Intent myIntent = new Intent(DestinationSelectActivity.this, RecurringEditActivity.class);
+                myIntent.putExtra("alertName", intent.getStringExtra("line") + " - New Alert"); //Optional parameters
                 DestinationSelectActivity.this.startActivity(myIntent);
             }
         });

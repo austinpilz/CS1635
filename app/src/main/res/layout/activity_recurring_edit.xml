@@ -117,12 +117,12 @@
             android:id="@+id/recDelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_toEndOf="@+id/recNumStops"
             android:background="#F14231"
             android:text="Delete"
             tools:layout_editor_absoluteX="201dp"
-            tools:layout_editor_absoluteY="463dp" />
+            tools:layout_editor_absoluteY="463dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/recNumStops" />
 
         <TextView
             android:id="@+id/textView2"
