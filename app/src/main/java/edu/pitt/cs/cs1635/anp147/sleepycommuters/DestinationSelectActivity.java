@@ -48,6 +48,19 @@ public class DestinationSelectActivity extends AppCompatActivity {
             }
         });
 
+        Button buttonR = (Button) findViewById(R.id.createRecurring);
+        buttonR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText mEdit = (EditText)findViewById(R.id.numStops);
+
+                Intent myIntent = new Intent(DestinationSelectActivity.this, RecurringListActivity.class);
+                myIntent.putExtra("recurringCreated", ""); //Optional parameters
+                myIntent.putExtra("numberOfStops", mEdit.getText().toString()); //Optional parameters
+                DestinationSelectActivity.this.startActivity(myIntent);
+            }
+        });
+
 
     }
 }

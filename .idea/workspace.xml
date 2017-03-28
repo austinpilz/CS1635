@@ -15,12 +15,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/pitt/cs/cs1635/anp147/sleepycommuters/DestinationSelectActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/pitt/cs/cs1635/anp147/sleepycommuters/DestinationSelectActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/pitt/cs/cs1635/anp147/sleepycommuters/LineSelectionActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/pitt/cs/cs1635/anp147/sleepycommuters/LineSelectionActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/pitt/cs/cs1635/anp147/sleepycommuters/MapsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/pitt/cs/cs1635/anp147/sleepycommuters/MapsActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_destination_select.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_destination_select.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_line_selection.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_line_selection.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/pitt/cs/cs1635/anp147/sleepycommuters/RecurringListActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/pitt/cs/cs1635/anp147/sleepycommuters/RecurringListActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_recurring_list.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_recurring_list.xml" />
     </list>
     <ignored path="SleepyCommuters.iws" />
@@ -53,50 +50,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DestinationSelectActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/pitt/cs/cs1635/anp147/sleepycommuters/DestinationSelectActivity.java">
+      <file leaf-file-name="RecurringListActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/pitt/cs/cs1635/anp147/sleepycommuters/RecurringListActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="45" column="77" selection-start-line="45" selection-start-column="77" selection-end-line="45" selection-end-column="77" />
+            <state relative-caret-position="285">
+              <caret line="26" column="61" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="61" />
               <folding>
-                <element signature="e#1451#1991#0" expanded="true" />
-                <element signature="e#1990#1991#0" expanded="true" />
+                <element signature="e#833#1207#0" expanded="true" />
+                <element signature="e#1206#1207#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LineSelectionActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/pitt/cs/cs1635/anp147/sleepycommuters/LineSelectionActivity.java">
+      <file leaf-file-name="MapsActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/pitt/cs/cs1635/anp147/sleepycommuters/MapsActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="29" column="88" selection-start-line="29" selection-start-column="88" selection-end-line="29" selection-end-column="88" />
+            <state relative-caret-position="225">
+              <caret line="29" column="44" selection-start-line="28" selection-start-column="89" selection-end-line="29" selection-end-column="44" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1792#2006#0" expanded="true" />
+                <element signature="e#2005#2006#0" expanded="true" />
+                <element signature="e#2507#2721#0" expanded="true" />
+                <element signature="e#2720#2721#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_line_selection.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_line_selection.xml">
-          <provider selected="true" editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NavigationDrawerActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/pitt/cs/cs1635/anp147/sleepycommuters/NavigationDrawerActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-491">
-              <caret line="34" column="38" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -1961,12 +1938,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_recurring_list.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_destination_select.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/edu/pitt/cs/cs1635/anp147/sleepycommuters/DestinationSelectActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/edu/pitt/cs/cs1635/anp147/sleepycommuters/MapsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_line_selection.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/pitt/cs/cs1635/anp147/sleepycommuters/LineSelectionActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/pitt/cs/cs1635/anp147/sleepycommuters/DestinationSelectActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_recurring_list.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/pitt/cs/cs1635/anp147/sleepycommuters/RecurringListActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/pitt/cs/cs1635/anp147/sleepycommuters/MapsActivity.java" />
       </list>
     </option>
   </component>
@@ -2497,10 +2475,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="18" column="76" selection-start-line="18" selection-start-column="57" selection-end-line="18" selection-end-column="76" />
-          <folding>
-            <element signature="e#1451#1991#0" expanded="true" />
-            <element signature="e#1990#1991#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2552,26 +2527,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/pitt/cs/cs1635/anp147/sleepycommuters/MapsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="52" column="75" selection-start-line="52" selection-start-column="75" selection-end-line="52" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_recurring_edit.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_recurring_list.xml">
       <provider selected="true" editor-type-id="android-designer2">
         <state />
       </provider>
@@ -2604,6 +2560,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_line_selection.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/pitt/cs/cs1635/anp147/sleepycommuters/LineSelectionActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_destination_select.xml">
       <provider selected="true" editor-type-id="android-designer2">
         <state />
@@ -2623,34 +2600,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/pitt/cs/cs1635/anp147/sleepycommuters/DestinationSelectActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="45" column="77" selection-start-line="45" selection-start-column="77" selection-end-line="45" selection-end-column="77" />
-          <folding>
-            <element signature="e#1451#1991#0" expanded="true" />
-            <element signature="e#1990#1991#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_line_selection.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_recurring_list.xml">
       <provider selected="true" editor-type-id="android-designer2">
         <state />
       </provider>
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/pitt/cs/cs1635/anp147/sleepycommuters/LineSelectionActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/pitt/cs/cs1635/anp147/sleepycommuters/DestinationSelectActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="29" column="88" selection-start-line="29" selection-start-column="88" selection-end-line="29" selection-end-column="88" />
+        <state relative-caret-position="469">
+          <caret line="59" column="71" selection-start-line="56" selection-start-column="16" selection-end-line="59" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/pitt/cs/cs1635/anp147/sleepycommuters/RecurringListActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="26" column="61" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="61" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#833#1207#0" expanded="true" />
+            <element signature="e#1206#1207#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/pitt/cs/cs1635/anp147/sleepycommuters/MapsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="29" column="44" selection-start-line="28" selection-start-column="89" selection-end-line="29" selection-end-column="44" />
+          <folding>
+            <element signature="e#1792#2006#0" expanded="true" />
+            <element signature="e#2005#2006#0" expanded="true" />
+            <element signature="e#2507#2721#0" expanded="true" />
+            <element signature="e#2720#2721#0" expanded="true" />
           </folding>
         </state>
       </provider>

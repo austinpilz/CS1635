@@ -1,8 +1,10 @@
 package edu.pitt.cs.cs1635.anp147.sleepycommuters;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,7 +33,29 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         final Intent intent = getIntent();
         if (intent.hasExtra("oneTimeCreated"))
         {
-            Toast.makeText(MapsActivity.this, "One time alert created! We'll alert you " + intent.getStringExtra("numberOfStops") + " stop(s) before your destination", Toast.LENGTH_LONG).show();
+            AlertDialog alertDialog = new AlertDialog.Builder(MapsActivity.this).create();
+            alertDialog.setTitle("Alert Created!");
+            alertDialog.setMessage("One time alert created! We'll alert you " + intent.getStringExtra("numberOfStops") + " stop(s) before your destination! Feel free to use other applications or take a nap.");
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Okay",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alertDialog.show();
+        }
+        else if (intent.hasExtra("createRecurringInstruction"))
+        {
+            AlertDialog alertDialog = new AlertDialog.Builder(MapsActivity.this).create();
+            alertDialog.setTitle("Create Recurring Alert");
+            alertDialog.setMessage("To create a recurring alert, select a starting bus stop from the map and follow the on screen prompts");
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Okay",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alertDialog.show();
         }
     }
 
