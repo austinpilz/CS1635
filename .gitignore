@@ -1,0 +1,12 @@
+
+*.bin
+
+*.bin
+
+*.lock
+
+.gradle/3.3/taskArtifacts/taskArtifacts.bin
+
+*.rawproto
+
+*.lock
