@@ -2,12 +2,25 @@ package edu.pitt.cs.cs1635.anp147.sleepycommuters;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.util.Log;
 
+
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.LocationListener;
+
+
+
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -16,19 +29,40 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks,
+        GoogleApiClient.OnConnectionFailedListener,LocationListener {
 
     private GoogleMap mMap;
-    private Marker alumniHallMarker;
+//    private Marker alumniHallMarker;
+    private GoogleApiClient mGoogleApiClient;
+    public static final String TAG = MapsActivity.class.getSimpleName();
+    private LocationRequest mLocationRequest;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.i(TAG, "Create Activity.");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .addApi(LocationServices.API)
+                .build();
+
+        // Create the LocationRequest object
+        mLocationRequest = LocationRequest.create()
+                .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
+                .setInterval(30 * 1000)        // 10 seconds, in milliseconds
+                .setFastestInterval(10 * 1000); // 1 second, in milliseconds
 
         final Intent intent = getIntent();
         if (intent.hasExtra("oneTimeCreated"))
@@ -70,8 +104,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     });
             alertDialog.show();
         }
-    }
 
+
+    }
 
     /**
      * Manipulates the map once available.
@@ -86,16 +121,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        LatLng cathy = new LatLng(40.444328, -79.953155);
-        mMap.addMarker(new MarkerOptions().position(cathy).title("Cathy"));
+//        LatLng cathy = new LatLng(40.444328, -79.953155);
+//        mMap.addMarker(new MarkerOptions().position(cathy).title("Cathy"));
 
         //Add our test bus stop
-        LatLng alumniStop = new LatLng(40.445679, -79.953223);
-        alumniHallMarker = mMap.addMarker(new MarkerOptions().position(alumniStop).title("Alumni Hall Bus Stop"));
-        alumniHallMarker.setTag(alumniStop);
+//        LatLng alumniStop = new LatLng(40.445679, -79.953223);
+//        alumniHallMarker = mMap.addMarker(new MarkerOptions().position(alumniStop).title("Alumni Hall Bus Stop"));
+//        alumniHallMarker.setTag(alumniStop);
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(cathy));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(mMap.getCameraPosition().zoom + 14f));
+//        mMap.moveCamera(CameraUpdateFactory.newLatLng(cathy));
+//        mMap.animateCamera(CameraUpdateFactory.zoomTo(mMap.getCameraPosition().zoom + 14f));
 
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
@@ -105,15 +140,80 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     //Using position get Value from arraylist
                 */
 
-                if (marker.equals(alumniHallMarker))
-                {
+//                if (marker.equals(alumniHallMarker))
+//                {
                     Intent myIntent = new Intent(MapsActivity.this, LineSelectionActivity.class);
-                    myIntent.putExtra("stopName", alumniHallMarker.getTitle()); //Optional parameters
+                    myIntent.putExtra("stopName", "temp"); //Optional parameters
                     MapsActivity.this.startActivity(myIntent);
-                }
+//                }
 
                 return false;
             }
         });
+    }
+
+    @Override
+    public void onConnected(Bundle bundle) {
+        if ( Build.VERSION.SDK_INT >= 23 &&
+                ContextCompat.checkSelfPermission( this, android.Manifest.permission.ACCESS_FINE_LOCATION ) != PackageManager.PERMISSION_GRANTED) {
+            return  ;
+        }
+
+        Log.i(TAG, "Location services connected.");
+        Location location = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+        if (location == null) {
+            LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
+        }
+        else {
+            handleNewLocation(location);
+        };
+
+    }
+
+    @Override
+    public void onConnectionSuspended(int i) {
+        Log.i(TAG, "Location services suspended. Please reconnect.");
+
+
+    }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mGoogleApiClient.connect();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (mGoogleApiClient.isConnected()) {
+            mGoogleApiClient.disconnect();
+        }
+    }
+
+    private void handleNewLocation(Location location) {
+
+        Log.d(TAG, location.toString());
+        double currentLatitude = location.getLatitude();
+        double currentLongitude = location.getLongitude();
+        LatLng latLng = new LatLng(currentLatitude, currentLongitude);
+        MarkerOptions options = new MarkerOptions()
+                .position(latLng)
+                .title("Your Location!");
+        mMap.addMarker(options);
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 17));
+
+    }
+
+
+    @Override
+    public void onLocationChanged(Location location) {
+        handleNewLocation(location);
+
     }
 }
