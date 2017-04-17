@@ -13,4 +13,7 @@
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp" />
 
+    <include layout="@layout/add_new_recurring_alert" />
+
+
 </android.support.constraint.ConstraintLayout>

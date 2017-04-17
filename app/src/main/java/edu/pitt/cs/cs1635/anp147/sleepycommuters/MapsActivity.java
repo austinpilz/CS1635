@@ -1,5 +1,6 @@
 package edu.pitt.cs.cs1635.anp147.sleepycommuters;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -11,6 +12,7 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
+import android.widget.Toast;
 
 
 import com.google.android.gms.location.LocationRequest;
@@ -46,6 +48,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+        Context context = getApplicationContext();
+        int duration = Toast.LENGTH_LONG;
+
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -80,16 +85,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
         else if (intent.hasExtra("createRecurringInstruction"))
         {
-            AlertDialog alertDialog = new AlertDialog.Builder(MapsActivity.this).create();
-            alertDialog.setTitle("Create Recurring Alert");
-            alertDialog.setMessage("To create a recurring alert, select a starting bus stop from the map and follow the on screen prompts");
-            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Okay",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
-            alertDialog.show();
+            CharSequence text = "To create a recurring alert, select a starting bus stop from the map and follow the on screen prompts";
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
         }
         else if (intent.hasExtra("recBegin"))
         {
@@ -104,6 +102,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     });
             alertDialog.show();
         }
+
 
 
     }
