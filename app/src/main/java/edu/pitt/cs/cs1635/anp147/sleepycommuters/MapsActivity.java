@@ -35,7 +35,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         GoogleApiClient.OnConnectionFailedListener,LocationListener {
 
     private GoogleMap mMap;
-//    private Marker alumniHallMarker;
+    private Marker alumniHallMarker;
     private GoogleApiClient mGoogleApiClient;
     public static final String TAG = MapsActivity.class.getSimpleName();
     private LocationRequest mLocationRequest;
@@ -69,6 +69,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .setInterval(30 * 1000)        // 10 seconds, in milliseconds
                 .setFastestInterval(10 * 1000); // 1 second, in milliseconds
 
+
+        //Intents for toast messages
         final Intent intent = getIntent();
         if (intent.hasExtra("oneTimeCreated"))
         {
@@ -120,13 +122,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-//        LatLng cathy = new LatLng(40.444328, -79.953155);
-//        mMap.addMarker(new MarkerOptions().position(cathy).title("Cathy"));
+        LatLng cathy = new LatLng(40.444328, -79.953155);
+        mMap.addMarker(new MarkerOptions().position(cathy).title("Cathy"));
 
         //Add our test bus stop
-//        LatLng alumniStop = new LatLng(40.445679, -79.953223);
-//        alumniHallMarker = mMap.addMarker(new MarkerOptions().position(alumniStop).title("Alumni Hall Bus Stop"));
-//        alumniHallMarker.setTag(alumniStop);
+        LatLng alumniStop = new LatLng(40.445679, -79.953223);
+        alumniHallMarker = mMap.addMarker(new MarkerOptions().position(alumniStop).title("Alumni Hall Bus Stop"));
+        alumniHallMarker.setTag(alumniStop);
 
 //        mMap.moveCamera(CameraUpdateFactory.newLatLng(cathy));
 //        mMap.animateCamera(CameraUpdateFactory.zoomTo(mMap.getCameraPosition().zoom + 14f));

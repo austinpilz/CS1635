@@ -60,7 +60,7 @@ public class NavigationDrawerActivity extends AppCompatActivity
         //homeRecList
         lv = (ListView) findViewById(R.id.homeRecList);
 
-        // Instanciating an array list (you don't need to do this,
+        // Instantiating an array list (you don't need to do this,
         // you already have yours).
         List<String> your_array_list = new ArrayList<String>();
         your_array_list.add("8:00AM | Work 1");
@@ -137,6 +137,12 @@ public class NavigationDrawerActivity extends AppCompatActivity
         {
             //Display Recurring
             Intent myIntent = new Intent(NavigationDrawerActivity.this, RecurringListActivity.class);
+            NavigationDrawerActivity.this.startActivity(myIntent);
+        }
+        else if (id == R.id.nav_settings)
+        {
+            //Display Recurring
+            Intent myIntent = new Intent(NavigationDrawerActivity.this, Test.class);
             NavigationDrawerActivity.this.startActivity(myIntent);
         }
 
