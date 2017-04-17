@@ -1,8 +1,10 @@
 package edu.pitt.cs.cs1635.anp147.sleepycommuters;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,6 +27,14 @@ public class DestinationSelectActivity extends AppCompatActivity {
         final Intent intent = getIntent();
         TextView textView = (TextView) findViewById(R.id.destinationHeadText);
         textView.setText("Showing destination stops for the " + intent.getStringExtra("line") + " originating at "+  intent.getStringExtra("stopName"));
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+        ActionBar ab = getSupportActionBar();
+
+        // Enable the Up button
+        ab.setDisplayHomeAsUpEnabled(true);
+
 
         LinearLayout mLinearLayout = (LinearLayout) findViewById(R.id.destinationLV);
 

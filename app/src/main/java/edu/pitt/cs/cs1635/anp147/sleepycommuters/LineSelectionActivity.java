@@ -60,6 +60,14 @@ public class LineSelectionActivity extends AppCompatActivity {
         lineArray.add(new Line("61", "B", "Southside"));
         lineArray.add(new Line("61", "C", "Oakland"));
         lineArray.add(new Line("61", "D", "Narnia"));
+        lineArray.add(new Line("51", "A", "Waterfront"));
+        lineArray.add(new Line("51", "B", "Southside"));
+        lineArray.add(new Line("51", "C", "Oakland"));
+        lineArray.add(new Line("51", "D", "Narnia"));
+        lineArray.add(new Line("41", "A", "Waterfront"));
+        lineArray.add(new Line("41", "B", "Southside"));
+        lineArray.add(new Line("41", "C", "Oakland"));
+        lineArray.add(new Line("41", "D", "Narnia"));
 
         LineAdapter lineAdapter = new LineAdapter(lineArray);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
