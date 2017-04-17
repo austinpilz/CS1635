@@ -63,28 +63,30 @@ public class NavigationDrawerActivity extends AppCompatActivity
 
 
 
-        recyclerView = (RecyclerView) findViewById(R.id.homeRecurringSelectList);
+        recyclerView = (RecyclerView) findViewById(R.id.homeSelectList);
 
-        //Ideally, this list would be pulled from the port authority API
+        //Pull recurring alarms from the database
         DatabaseHandler db = new DatabaseHandler(this);
         List<RecurringAlarm> alarms = db.getAllAlarms();
 
+        if (alarms.size() > 0) {
 
-        AlarmAdapter alarmAdapter = new AlarmAdapter(alarms);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(alarmAdapter);
+            AlarmAdapter alarmAdapter = new AlarmAdapter(alarms);
+            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(recyclerView.getContext());
+            recyclerView.setLayoutManager(mLayoutManager);
+            recyclerView.setItemAnimator(new DefaultItemAnimator());
+            recyclerView.setAdapter(alarmAdapter);
 
-        ItemClickSupport.addTo(recyclerView).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
-            @Override
-            public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+            ItemClickSupport.addTo(recyclerView).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+                @Override
+                public void onItemClicked(RecyclerView recyclerView, int position, View v) {
 
-                Intent newIntent = new Intent(NavigationDrawerActivity.this,MapsActivity.class);
-                newIntent.putExtra("recBegin", value);
-                startActivity(newIntent);
-            }
-        });
+                    Intent newIntent = new Intent(NavigationDrawerActivity.this, MapsActivity.class);
+                    newIntent.putExtra("recBegin", value);
+                    startActivity(newIntent);
+                }
+            });
+        }
 
 
     }

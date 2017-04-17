@@ -39,12 +39,11 @@
             app:layout_constraintVertical_bias="0.033" />
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/homeRecurringSelectList"
+            android:id="@+id/homeSelectList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="vertical"
-            android:layout_below="@+id/textView12"
-            android:layout_alignParentStart="true" />
+            android:scrollbars="vertical" />
+
     </RelativeLayout>
 
 
