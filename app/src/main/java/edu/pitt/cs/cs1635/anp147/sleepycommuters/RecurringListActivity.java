@@ -17,6 +17,7 @@ import java.util.List;
 public class RecurringListActivity extends AppCompatActivity {
 
     private ListView lv;
+    private List<RecurringAlarm> alarms;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,13 +42,16 @@ public class RecurringListActivity extends AppCompatActivity {
 
         lv = (ListView) findViewById(R.id.recurringAlertList);
 
+        DatabaseHandler db = new DatabaseHandler(this);
+
+        alarms = db.getAllAlarms();
+
         // Instanciating an array list (you don't need to do this,
         // you already have yours).
         List<String> your_array_list = new ArrayList<String>();
-        your_array_list.add("8:00AM | Work 1");
-        your_array_list.add("8:15 AM | Over Slept");
-        your_array_list.add("9:00 AM | Dude");
-        your_array_list.add("7:00 PM | Night Class");
+        for (RecurringAlarm alarm : alarms) {
+            your_array_list.add(alarm.get_hour() + ":" + alarm.get_minute() + " " + alarm.get_ampm() + " | " + alarm.get_alert_name());
+        }
 
         // This is the array adapter, it takes the context of the activity as a
         // first parameter, the type of list view as a second parameter and your
@@ -64,9 +68,9 @@ public class RecurringListActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapter, View v, int position,
                                     long arg3){
                 String value = (String)adapter.getItemAtPosition(position);
-
+                String name = getName(value);
                 Intent newIntent = new Intent(RecurringListActivity.this,RecurringEditActivity.class);
-                newIntent.putExtra("alertName", value);
+                newIntent.putExtra("alertName", name);
                 startActivity(newIntent);
             }
         });
@@ -84,5 +88,15 @@ public class RecurringListActivity extends AppCompatActivity {
                     });
             alertDialog.show();
         }
+    }
+
+    private String getName(String alertTimeName) {
+
+        String alertName = "Not Found";
+        int i = alertTimeName.indexOf("|");
+        if ( i!= -1) {
+            alertName = alertTimeName.substring(i + 2);
+        }
+        return alertName;
     }
 }
