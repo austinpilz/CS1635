@@ -251,12 +251,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         mBuilder.setSmallIcon(R.drawable.ic_notifications_black_24dp);
         mBuilder.setContentTitle("Sleepy Commuter");
-        mBuilder.setContentText("Leave your house to catch that bus!");
+        mBuilder.setContentText("Get off the bus!");
 
         NotificationManager mNotificationManager =
 
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-        mNotificationManager.notify(001, mBuilder.build());
+        mNotificationManager.notify(003, mBuilder.build());
     }
 }
