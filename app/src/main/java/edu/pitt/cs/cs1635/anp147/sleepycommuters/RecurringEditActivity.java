@@ -1,16 +1,18 @@
 package edu.pitt.cs.cs1635.anp147.sleepycommuters;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import android.util.Log;
 
 import edu.pitt.cs.cs1635.anp147.sleepycommuters.Alarms.RecurringAlarm;
+
 
 public class RecurringEditActivity extends AppCompatActivity {
 
@@ -29,7 +31,10 @@ public class RecurringEditActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "creating activity");
-
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.recurringEditToolbar);
+        setSupportActionBar(myToolbar);
+        ActionBar ab = getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_recurring_edit);
         final Intent intent = getIntent();
         alertName = (EditText) findViewById(R.id.recAlertLabel);
