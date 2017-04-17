@@ -72,7 +72,7 @@ public class NavigationDrawerActivity extends AppCompatActivity
         if (alarms.size() > 0) {
 
             AlarmAdapter alarmAdapter = new AlarmAdapter(alarms);
-            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(recyclerView.getContext());
+            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
             recyclerView.setLayoutManager(mLayoutManager);
             recyclerView.setItemAnimator(new DefaultItemAnimator());
             recyclerView.setAdapter(alarmAdapter);

@@ -31,11 +31,15 @@ public class RecurringEditActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "creating activity");
+
+        setContentView(R.layout.activity_recurring_edit);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.recurringEditToolbar);
         setSupportActionBar(myToolbar);
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
-        setContentView(R.layout.activity_recurring_edit);
+
+
+
         final Intent intent = getIntent();
         alertName = (EditText) findViewById(R.id.recAlertLabel);
         depart = (TextView) findViewById(R.id.recDepartingFrom);

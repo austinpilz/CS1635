@@ -2,22 +2,67 @@
 <items version="2" >
 
     <item
-        is-multidex="false"
-        jar="/Users/austinpilz/.android/build-cache/f3f5116be24c23301d8ddb38a14a6a1688f46573/output/jars/classes.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="/Users/austinpilz/.android/build-cache/415699bc5bbc38e1c2c51322e2ddd66d46ea42cd/output/jars/classes.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="08303b8b376b0399b932f863fc616109833f7124">
-        <dex dex="/Users/austinpilz/Desktop/CS1635/app/build/intermediates/pre-dexed/debug/classes_ae49f2292c58fefc09e68fc314730072e1645298.jar" />
+        sha1="ddf6763cb30af9e449dc8c4baef2940ee05d5686">
+        <dex dex="/Users/austinpilz/Desktop/CS1635/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_2a335c28240bc96036cd4ea58a101bd5f6c5789c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/austinpilz/.android/build-cache/cfdf01e2c90d54f83a0757b526b7bbed38330a30/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="/Users/austinpilz/Desktop/CS1635/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_6ca6bd67ebd5c4a3e7ade9b259bce60aec31ad30/classes.dex" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/austinpilz/.android/build-cache/dbb0aed9dd838e5944cccbb60a5797f87161cbef/output/jars/classes.jar"
+        jar="/Users/austinpilz/.android/build-cache/415699bc5bbc38e1c2c51322e2ddd66d46ea42cd/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="44a694d4095be84c2888764b1f7256b385c030ad">
-        <dex dex="/Users/austinpilz/Desktop/CS1635/app/build/intermediates/pre-dexed/debug/classes_a71ff935ab430221d0d8fd7b47755230d4ac9eec.jar" />
+        sha1="ddf6763cb30af9e449dc8c4baef2940ee05d5686">
+        <dex dex="/Users/austinpilz/Desktop/CS1635/app/build/intermediates/pre-dexed/debug/classes_2a335c28240bc96036cd4ea58a101bd5f6c5789c.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/austinpilz/Desktop/CS1635/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        <dex dex="/Users/austinpilz/Desktop/CS1635/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_41cef3dce67bcd79e74a2eb54aac345007ee8f6c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/austinpilz/.android/build-cache/33bdd7f18f3d405775398c5c52e38dc76c526f2e/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="/Users/austinpilz/Desktop/CS1635/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_1fa23a53a5aca4fdc4239cf06412a547b25faf09/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/austinpilz/.android/build-cache/8f6666abab552cf108b3f433422724bdc3e802a7/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="/Users/austinpilz/Desktop/CS1635/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_d132ccac74dfbf13d40b3dfb13d0406fbecbce62/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/austinpilz/.android/build-cache/3e1ab47ca48874a70e53403fa1314ab3c6594c15/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bf61bf8eaae33094f5db5c6c9676e618babd9178">
+        <dex dex="/Users/austinpilz/Desktop/CS1635/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_4f28cd64e533769fef47ebf8ab709810a761dd22/classes.dex" />
     </item>
     <item
         is-multidex="false"
@@ -29,6 +74,123 @@
         <dex dex="/Users/austinpilz/Desktop/CS1635/app/build/intermediates/pre-dexed/debug/classes_4f28cd64e533769fef47ebf8ab709810a761dd22.jar" />
     </item>
     <item
+        is-multidex="true"
+        jar="/Users/austinpilz/.android/build-cache/dbb0aed9dd838e5944cccbb60a5797f87161cbef/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="44a694d4095be84c2888764b1f7256b385c030ad">
+        <dex dex="/Users/austinpilz/Desktop/CS1635/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a71ff935ab430221d0d8fd7b47755230d4ac9eec/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/austinpilz/.android/build-cache/7884a1a59f42b02c1d78157d0ca76d8d9e1dc859/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="/Users/austinpilz/Desktop/CS1635/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_8d145d8ffaee54b3f5379c726a0ce28a513c43ae/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/austinpilz/.android/build-cache/f3f5116be24c23301d8ddb38a14a6a1688f46573/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="08303b8b376b0399b932f863fc616109833f7124">
+        <dex dex="/Users/austinpilz/Desktop/CS1635/app/build/intermediates/pre-dexed/debug/classes_ae49f2292c58fefc09e68fc314730072e1645298.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/austinpilz/.android/build-cache/a4f0ade3d66d75302e02d0fb4b8dcdf44162f9da/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="/Users/austinpilz/Desktop/CS1635/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_63dc4e7b47b4dc24ab086369b7bbae0586eb7493/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/austinpilz/.android/build-cache/819926b8458b433c5491a6c2ddb0820c12035df2/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="/Users/austinpilz/Desktop/CS1635/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_53d91d8b5423b90795f8d43480bef8ebf197d065/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/austinpilz/.android/build-cache/dbb0aed9dd838e5944cccbb60a5797f87161cbef/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="44a694d4095be84c2888764b1f7256b385c030ad">
+        <dex dex="/Users/austinpilz/Desktop/CS1635/app/build/intermediates/pre-dexed/debug/classes_a71ff935ab430221d0d8fd7b47755230d4ac9eec.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/austinpilz/.android/build-cache/6c61362e5f4c7754b928ac659430852144886234/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="/Users/austinpilz/Desktop/CS1635/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_b563b437335a3273e7374225067b28705e76c8f5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/austinpilz/.android/build-cache/f3f5116be24c23301d8ddb38a14a6a1688f46573/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="08303b8b376b0399b932f863fc616109833f7124">
+        <dex dex="/Users/austinpilz/Desktop/CS1635/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_ae49f2292c58fefc09e68fc314730072e1645298/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/austinpilz/.android/build-cache/aa86efe486385dcffedea7481009a98769054a0b/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
+        <dex dex="/Users/austinpilz/Desktop/CS1635/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_d372a90583840257a4d41a374734566972c9f1f0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/austinpilz/.android/build-cache/de0f4f0ba2df572a50d9c7f6f6c456c74fff7dd5/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
+        <dex dex="/Users/austinpilz/Desktop/CS1635/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_d807a19fe67ca0c1a3afe1c91f4b2a9e404bbff4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/austinpilz/.android/build-cache/da7fa42cd48c3932c3e5890767b61206a3099a86/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="/Users/austinpilz/Desktop/CS1635/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_890dcdfde231bfba0ba6bba0ad9c973ad472b713/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/austinpilz/.android/build-cache/52c75b487040f0c89debbdb73c4aa43f55aac91c/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="/Users/austinpilz/Desktop/CS1635/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_39f70ecca31d253a5650e1372b42faf610459e77/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/austinpilz/.android/build-cache/b628fcc0013706fa8e858136f78f190197066174/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="82d4c48dd72c89bef6d199675ac3d1041fdc77da">
+        <dex dex="/Users/austinpilz/Desktop/CS1635/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_1f2712fbef4abf42fd1d9a9d9c4bee9788fd9637/classes.dex" />
+    </item>
+    <item
         is-multidex="false"
         jar="/Users/austinpilz/.android/build-cache/b628fcc0013706fa8e858136f78f190197066174/output/jars/classes.jar"
         jumboMode="false"
@@ -38,13 +200,31 @@
         <dex dex="/Users/austinpilz/Desktop/CS1635/app/build/intermediates/pre-dexed/debug/classes_1f2712fbef4abf42fd1d9a9d9c4bee9788fd9637.jar" />
     </item>
     <item
-        is-multidex="false"
-        jar="/Users/austinpilz/.android/build-cache/415699bc5bbc38e1c2c51322e2ddd66d46ea42cd/output/jars/classes.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="/Users/austinpilz/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.3.1/support-annotations-25.3.1.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="ddf6763cb30af9e449dc8c4baef2940ee05d5686">
-        <dex dex="/Users/austinpilz/Desktop/CS1635/app/build/intermediates/pre-dexed/debug/classes_2a335c28240bc96036cd4ea58a101bd5f6c5789c.jar" />
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="/Users/austinpilz/Desktop/CS1635/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.3.1_0202920a28b22377a455e4c3da0a2ab7ba48ff2b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/austinpilz/Desktop/CS1635/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6080d7aa4473cd9ee8925d5c55d4f4c1ca012147">
+        <dex dex="/Users/austinpilz/Desktop/CS1635/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_a1a4b1c063c3ca8add8ce739ab22d16524218824/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/austinpilz/.android/build-cache/965bf85ec74a43eb8163879969c5f7b93b9534c1/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/austinpilz/Desktop/CS1635/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_cd1a44be92e428c2ffb5fc106c492151e0efd0a9/classes.dex" />
     </item>
 
 </items>
