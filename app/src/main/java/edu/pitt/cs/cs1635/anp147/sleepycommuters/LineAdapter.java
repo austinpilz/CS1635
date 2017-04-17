@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import edu.pitt.cs.cs1635.anp147.sleepycommuters.listener.ItemClickSupport;
 import edu.pitt.cs.cs1635.anp147.sleepycommuters.portAuthority.Line;
 
 /**
@@ -37,6 +38,8 @@ public class LineAdapter extends RecyclerView.Adapter<LineAdapter.MyViewHolder> 
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.line_list_row, parent, false);
 
+
+
         return new MyViewHolder(itemView);
     }
 
@@ -51,4 +54,6 @@ public class LineAdapter extends RecyclerView.Adapter<LineAdapter.MyViewHolder> 
     public int getItemCount() {
         return lineList.size();
     }
+
+
 }
