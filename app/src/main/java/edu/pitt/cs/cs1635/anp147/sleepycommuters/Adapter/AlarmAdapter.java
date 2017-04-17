@@ -46,7 +46,7 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.MyViewHolder
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         RecurringAlarm alarm = alarmList.get(position);
-        holder.title.setText(alarm.get_hour() + ":" + alarm.get_minute() + " " + alarm.get_ampm());
+        holder.title.setText(alarm.get_time());
         holder.genre.setText(alarm.get_alert_name());
     }
 

@@ -15,9 +15,9 @@ public class RecurringAlarm {
     String _direction;
     int _stops_before;
     String _repeat;
-    String _hour;
-    String _minute;
-    String _ampm;
+    String _time;
+//    String _minute;
+//    String _ampm;
 
     // Empty constructor
     public RecurringAlarm(){
@@ -26,7 +26,7 @@ public class RecurringAlarm {
     // constructor
 
 
-    public RecurringAlarm(int _id, String _alert_name, String _depart_stop, String _bus_line, String _dest_stop, String _direction, int _stops_before, String _repeat, String _hour, String _minute, String _ampm) {
+    public RecurringAlarm(int _id, String _alert_name, String _depart_stop, String _bus_line, String _dest_stop, String _direction, int _stops_before, String _repeat, String _time) {
         this._id = _id;
         this._alert_name = _alert_name;
         this._depart_stop = _depart_stop;
@@ -35,9 +35,9 @@ public class RecurringAlarm {
         this._direction = _direction;
         this._stops_before = _stops_before;
         this._repeat = _repeat;
-        this._hour = _hour;
-        this._minute = _minute;
-        this._ampm = _ampm;
+        this._time = _time;
+//        this._minute = _minute;
+//        this._ampm = _ampm;
     }
 
     // getting ID
@@ -105,27 +105,35 @@ public class RecurringAlarm {
         this._repeat = _repeat;
     }
 
-    public String get_hour() {
-        return _hour;
+//    public String get_hour() {
+//        return _hour;
+//    }
+//
+//    public void set_hour(String _hour) {
+//        this._hour = _hour;
+//    }
+//
+//    public String get_minute() {
+//        return _minute;
+//    }
+//
+//    public void set_minute(String _minute) {
+//        this._minute = _minute;
+//    }
+//
+//    public String get_ampm() {
+//        return _ampm;
+//    }
+//
+//    public void set_ampm(String _ampm) {
+//        this._ampm = _ampm;
+//    }
+
+    public String get_time() {
+        return _time;
     }
 
-    public void set_hour(String _hour) {
-        this._hour = _hour;
-    }
-
-    public String get_minute() {
-        return _minute;
-    }
-
-    public void set_minute(String _minute) {
-        this._minute = _minute;
-    }
-
-    public String get_ampm() {
-        return _ampm;
-    }
-
-    public void set_ampm(String _ampm) {
-        this._ampm = _ampm;
+    public void set_time(String _time) {
+        this._time = _time;
     }
 }

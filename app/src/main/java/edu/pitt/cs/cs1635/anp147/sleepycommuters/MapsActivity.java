@@ -1,14 +1,19 @@
 package edu.pitt.cs.cs1635.anp147.sleepycommuters;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
@@ -30,6 +35,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.util.Map;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,LocationListener {
@@ -84,6 +91,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         }
                     });
             alertDialog.show();
+            new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    sendNotificationGetOff();
+                }
+            }, 5000);
         }
         else if (intent.hasExtra("createRecurringInstruction"))
         {
@@ -103,6 +116,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         }
                     });
             alertDialog.show();
+            new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    sendNotificationGetOff();
+                }
+            }, 5000);
         }
 
 
@@ -144,7 +163,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //                if (marker.equals(alumniHallMarker))
 //                {
                     Intent myIntent = new Intent(MapsActivity.this, LineSelectionActivity.class);
-                    myIntent.putExtra("stopName", "Fifth and Thackeray"); //Optional parameters
+                    myIntent.putExtra("stopName", "Alumni Hall"); //Optional parameters
                     MapsActivity.this.startActivity(myIntent);
 //                }
 
@@ -216,5 +235,28 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onLocationChanged(Location location) {
         handleNewLocation(location);
 
+    }
+
+    public void sendNotificationGetOff() {
+
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(this);
+
+        //Create the intent that’ll fire when the user taps the notification//
+
+        Intent intent = new Intent(MapsActivity.this, NavigationDrawerActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+
+        mBuilder.setContentIntent(pendingIntent);
+
+        mBuilder.setSmallIcon(R.drawable.ic_notifications_black_24dp);
+        mBuilder.setContentTitle("Sleepy Commuter");
+        mBuilder.setContentText("Leave your house to catch that bus!");
+
+        NotificationManager mNotificationManager =
+
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        mNotificationManager.notify(001, mBuilder.build());
     }
 }

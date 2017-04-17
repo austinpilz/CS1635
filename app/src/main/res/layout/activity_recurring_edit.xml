@@ -26,6 +26,7 @@
         android:id="@+id/checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:checked="true"
         android:text="Monday"
         android:layout_marginLeft="4dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -54,6 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/checkBox2"
+        android:checked="true"
         android:text="Wednesday"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
@@ -67,6 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:checked="true"
         android:text="Thursday"
         app:layout_constraintRight_toLeftOf="@+id/checkBox5"
         android:layout_marginRight="7dp"
@@ -82,6 +85,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/checkBox4"
+        android:checked="true"
         android:text="Friday"
         app:layout_constraintRight_toLeftOf="@+id/checkBox6"
         android:layout_marginRight="12dp"
@@ -184,11 +188,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textView8"
-        android:layout_marginTop="24dp"
         android:text="Direction:"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
     <TextView
         android:id="@+id/textView9"
@@ -236,11 +240,8 @@
         android:text="New Alert"
         android:inputType="text"
         android:gravity="right"
-        android:layout_marginRight="8dp"
+        android:layout_marginRight="32dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/textView2"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintHorizontal_bias="0.899"
         android:layout_marginTop="12dp"
         app:layout_constraintTop_toBottomOf="@+id/recurringEditToolbar" />
 
@@ -253,13 +254,13 @@
         android:layout_marginStart="12dp"
         android:layout_toEndOf="@+id/textView3"
         android:text="Example Bus Stop"
-        android:layout_marginRight="8dp"
+        android:layout_marginRight="0dp"
         app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/recAlertLabel"
         app:layout_constraintLeft_toRightOf="@+id/textView3"
         android:layout_marginLeft="8dp"
-        app:layout_constraintHorizontal_bias="0.792"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/recAlertLabel" />
+        app:layout_constraintHorizontal_bias="0.76" />
 
     <TextView
         android:id="@+id/recBusLine"
@@ -269,12 +270,9 @@
         android:layout_alignBottom="@+id/textView6"
         android:layout_alignEnd="@+id/textView9"
         android:text="71 A"
-        android:layout_marginRight="8dp"
+        android:layout_marginRight="32dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/textView6"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintHorizontal_bias="0.894"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintTop_toBottomOf="@+id/recDepartingFrom" />
 
     <TextView
@@ -285,8 +283,10 @@
         android:layout_alignBottom="@+id/textView7"
         android:layout_alignEnd="@+id/textView9"
         android:text="Inbound"
-        tools:layout_editor_absoluteY="191dp"
-        tools:layout_editor_absoluteX="300dp" />
+        android:layout_marginRight="32dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="23dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
     <EditText
         android:id="@+id/recDepartTime"
@@ -300,12 +300,9 @@
         android:text="1:00 PM"
         android:textSize="14dp"
         android:gravity="right"
-        app:layout_constraintLeft_toRightOf="@+id/textView8"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="6dp"
+        android:layout_marginRight="30dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.872"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="9dp"
         app:layout_constraintTop_toBottomOf="@+id/recDirection" />
 
     <EditText
@@ -320,12 +317,29 @@
         android:gravity="right"
         android:text="2"
         android:textSize="14dp"
-        android:layout_marginRight="6dp"
+        android:layout_marginRight="30dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/textView9"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintHorizontal_bias="0.84"
         android:layout_marginTop="0dp"
         app:layout_constraintTop_toBottomOf="@+id/recDepartTime" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Destination:"
+        tools:layout_editor_absoluteX="16dp"
+        android:textStyle="bold"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/recBusLine"
+        android:layout_marginRight="32dp"
+        app:layout_constraintRight_toRightOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

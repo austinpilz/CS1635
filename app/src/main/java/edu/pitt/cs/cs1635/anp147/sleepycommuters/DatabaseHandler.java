@@ -19,7 +19,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     // All Static variables
     // Database Version
-    private static final int DATABASE_VERSION = 5;
+    private static final int DATABASE_VERSION = 6;
 
     // Database Name
     private static final String DATABASE_NAME = "alarmsManager";
@@ -36,9 +36,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_DIRECTION = "direction";
     private static final String KEY_STOPS_BEFORE = "stops_before";
     private static final String KEY_REPEAT = "repeat";
-    private static final String KEY_HOUR = "hour";
-    private static final String KEY_MINUTE = "minute";
-    private static final String KEY_AMPM = "ampm";
+    private static final String KEY_TIME = "time";
+//    private static final String KEY_MINUTE = "minute";
+//    private static final String KEY_AMPM = "ampm";
 
 
     public DatabaseHandler(Context context) {
@@ -48,7 +48,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // Creating Tables
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_ALARMS_TABLE = "CREATE TABLE " + TABLE_ALARMS + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_ALERT_NAME + " TEXT," + KEY_DEPART_STOP + " TEXT," + KEY_BUS_LINE + " TEXT," + KEY_DEST_STOP + " TEXT," + KEY_DIRECTION + " TEXT," + KEY_STOPS_BEFORE + " INT," + KEY_REPEAT + " TEXT," + KEY_HOUR + " TEXT," + KEY_MINUTE + " TEXT," + KEY_AMPM + " TEXT" + ")";
+        String CREATE_ALARMS_TABLE = "CREATE TABLE " + TABLE_ALARMS + "(" + KEY_ID + " INTEGER PRIMARY KEY," +
+                KEY_ALERT_NAME + " TEXT," + KEY_DEPART_STOP + " TEXT," + KEY_BUS_LINE + " TEXT," +
+                KEY_DEST_STOP + " TEXT," + KEY_DIRECTION + " TEXT," + KEY_STOPS_BEFORE + " INT," + KEY_REPEAT + " TEXT," + KEY_TIME
+                + " TEXT" +
+                // KEY_MINUTE + " TEXT," + KEY_AMPM + " TEXT" +
+                ")";
         db.execSQL(CREATE_ALARMS_TABLE);
     }
 
@@ -78,9 +83,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_DIRECTION, alarm.get_direction());
         values.put(KEY_STOPS_BEFORE, alarm.get_stops_before());
         values.put(KEY_REPEAT, alarm.get_repeat());
-        values.put(KEY_HOUR, alarm.get_hour());
-        values.put(KEY_MINUTE, alarm.get_minute());
-        values.put(KEY_AMPM, alarm.get_ampm());
+        values.put(KEY_TIME, alarm.get_time());
+//        values.put(KEY_MINUTE, alarm.get_minute());
+//        values.put(KEY_AMPM, alarm.get_ampm());
 
 
         // Inserting Row
@@ -93,8 +98,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(TABLE_ALARMS, new String[] { KEY_ID, KEY_ALERT_NAME,
-                        KEY_DEPART_STOP, KEY_BUS_LINE,  KEY_DEST_STOP, KEY_DIRECTION, KEY_STOPS_BEFORE, KEY_REPEAT,
-                KEY_HOUR, KEY_MINUTE, KEY_AMPM}, KEY_ALERT_NAME + "=?",
+                        KEY_DEPART_STOP, KEY_BUS_LINE,  KEY_DEST_STOP, KEY_DIRECTION, KEY_STOPS_BEFORE, KEY_REPEAT, KEY_TIME
+                //KEY_HOUR, KEY_MINUTE, KEY_AMPM
+        }, KEY_ALERT_NAME + "=?",
                 new String[] { String.valueOf(alarm_name) }, null, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
@@ -102,7 +108,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         RecurringAlarm alarm = new RecurringAlarm(Integer.parseInt(cursor.getString(0)),
                 cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4),
                 cursor.getString(5), Integer.parseInt(cursor.getString(6)), cursor.getString(7),
-            cursor.getString(8), cursor.getString(9), cursor.getString(10));
+            cursor.getString(8));
         // return alarm
         return alarm;
     }
@@ -129,9 +135,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 alarm.set_direction(cursor.getString(5));
                 alarm.set_stops_before(Integer.parseInt(cursor.getString(6)));
                 alarm.set_repeat(cursor.getString(7));
-                alarm.set_hour(cursor.getString(8));
-                alarm.set_minute(cursor.getString(9));
-                alarm.set_ampm(cursor.getString(10));
+                alarm.set_time(cursor.getString(8));
+//                alarm.set_minute(cursor.getString(9));
+//                alarm.set_ampm(cursor.getString(10));
 
 
                 // Adding alarm to list
@@ -155,9 +161,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_DIRECTION, alarm.get_direction());
         values.put(KEY_STOPS_BEFORE, alarm.get_stops_before());
         values.put(KEY_REPEAT, alarm.get_repeat());
-        values.put(KEY_HOUR, alarm.get_hour());
-        values.put(KEY_MINUTE, alarm.get_minute());
-        values.put(KEY_AMPM, alarm.get_ampm());
+        values.put(KEY_TIME, alarm.get_time());
+//        values.put(KEY_MINUTE, alarm.get_minute());
+//        values.put(KEY_AMPM, alarm.get_ampm());
 
         // updating row
         return db.update(TABLE_ALARMS, values, KEY_ID + " = ?",

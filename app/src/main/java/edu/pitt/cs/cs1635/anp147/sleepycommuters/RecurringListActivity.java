@@ -1,8 +1,18 @@
 package edu.pitt.cs.cs1635.anp147.sleepycommuters;
 
+import android.app.AlarmManager;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.SystemClock;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -59,7 +69,7 @@ public class RecurringListActivity extends AppCompatActivity {
         // you already have yours).
         List<String> your_array_list = new ArrayList<String>();
         for (RecurringAlarm alarm : alarms) {
-            your_array_list.add(alarm.get_hour() + ":" + alarm.get_minute() + " " + alarm.get_ampm() + " | " + alarm.get_alert_name());
+            your_array_list.add(alarm.get_time() + " | " + alarm.get_alert_name());
         }
 
         // This is the array adapter, it takes the context of the activity as a
@@ -96,6 +106,32 @@ public class RecurringListActivity extends AppCompatActivity {
                         }
                     });
             alertDialog.show();
+            new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    sendNotificationLeaveHouse();
+                }
+            }, 5000);
+
+            new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    sendNotificationBusClose();
+                }
+            }, 10000);
+        }
+        else if (intent.hasExtra("recDelete"))
+        {
+            AlertDialog alertDialog = new AlertDialog.Builder(RecurringListActivity.this).create();
+            alertDialog.setTitle("Alert Deleted!");
+            alertDialog.setMessage("Your recurring alert has been deleted successfully!");
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Okay",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alertDialog.show();
         }
     }
 
@@ -108,4 +144,51 @@ public class RecurringListActivity extends AppCompatActivity {
         }
         return alertName;
     }
+
+    public void sendNotificationLeaveHouse() {
+
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(this);
+
+        //Create the intent that’ll fire when the user taps the notification//
+
+        Intent intent = new Intent(RecurringListActivity.this, NavigationDrawerActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+
+        mBuilder.setContentIntent(pendingIntent);
+
+        mBuilder.setSmallIcon(R.drawable.ic_notifications_black_24dp);
+        mBuilder.setContentTitle("Sleepy Commuter");
+        mBuilder.setContentText("Leave your house to catch that bus!");
+
+        NotificationManager mNotificationManager =
+
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        mNotificationManager.notify(001, mBuilder.build());
+    }
+
+    public void sendNotificationBusClose(){
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(this);
+
+        //Create the intent that’ll fire when the user taps the notification//
+
+        Intent intent = new Intent(RecurringListActivity.this, NavigationDrawerActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+
+        mBuilder.setContentIntent(pendingIntent);
+
+        mBuilder.setSmallIcon(R.drawable.ic_notifications_black_24dp);
+        mBuilder.setContentTitle("Sleepy Commuter");
+        mBuilder.setContentText("The bus is 2 stops away!");
+
+        NotificationManager mNotificationManager =
+
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        mNotificationManager.notify(002, mBuilder.build());
+    }
+
 }
+
