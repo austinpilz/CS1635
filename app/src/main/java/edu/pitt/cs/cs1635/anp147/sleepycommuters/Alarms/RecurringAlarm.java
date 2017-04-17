@@ -1,4 +1,4 @@
-package edu.pitt.cs.cs1635.anp147.sleepycommuters;
+package edu.pitt.cs.cs1635.anp147.sleepycommuters.Alarms;
 
 /**
  * Created by yvl2 on 4/17/17.

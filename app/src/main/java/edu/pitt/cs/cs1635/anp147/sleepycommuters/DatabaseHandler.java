@@ -13,6 +13,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import edu.pitt.cs.cs1635.anp147.sleepycommuters.Alarms.RecurringAlarm;
+
 public class DatabaseHandler extends SQLiteOpenHelper {
 
     // All Static variables

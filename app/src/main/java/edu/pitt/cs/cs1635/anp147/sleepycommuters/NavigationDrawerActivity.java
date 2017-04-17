@@ -3,7 +3,9 @@ package edu.pitt.cs.cs1635.anp147.sleepycommuters;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,17 +15,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import edu.pitt.cs.cs1635.anp147.sleepycommuters.Adapter.AlarmAdapter;
+import edu.pitt.cs.cs1635.anp147.sleepycommuters.Alarms.RecurringAlarm;
+import edu.pitt.cs.cs1635.anp147.sleepycommuters.listener.ItemClickSupport;
+
+import static android.R.attr.value;
 
 public class NavigationDrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private ListView lv;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,29 +63,22 @@ public class NavigationDrawerActivity extends AppCompatActivity
 
 
 
-        //homeRecList
-        lv = (ListView) findViewById(R.id.homeRecList);
+        recyclerView = (RecyclerView) findViewById(R.id.homeRecurringSelectList);
 
-        // Instantiating an array list (you don't need to do this,
-        // you already have yours).
-        List<String> your_array_list = new ArrayList<String>();
-        your_array_list.add("8:00AM | Work 1");
+        //Ideally, this list would be pulled from the port authority API
+        DatabaseHandler db = new DatabaseHandler(this);
+        List<RecurringAlarm> alarms = db.getAllAlarms();
 
-        // This is the array adapter, it takes the context of the activity as a
-        // first parameter, the type of list view as a second parameter and your
-        // array as a third parameter.
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
-                this,
-                android.R.layout.simple_list_item_1,
-                your_array_list );
 
-        lv.setAdapter(arrayAdapter);
+        AlarmAdapter alarmAdapter = new AlarmAdapter(alarms);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(alarmAdapter);
 
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+        ItemClickSupport.addTo(recyclerView).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapter, View v, int position,
-                                    long arg3){
-                String value = (String)adapter.getItemAtPosition(position);
+            public void onItemClicked(RecyclerView recyclerView, int position, View v) {
 
                 Intent newIntent = new Intent(NavigationDrawerActivity.this,MapsActivity.class);
                 newIntent.putExtra("recBegin", value);

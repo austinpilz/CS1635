@@ -1,4 +1,4 @@
-package edu.pitt.cs.cs1635.anp147.sleepycommuters;
+package edu.pitt.cs.cs1635.anp147.sleepycommuters.Adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import edu.pitt.cs.cs1635.anp147.sleepycommuters.listener.ItemClickSupport;
+import edu.pitt.cs.cs1635.anp147.sleepycommuters.R;
 import edu.pitt.cs.cs1635.anp147.sleepycommuters.portAuthority.Line;
 
 /**

@@ -10,15 +10,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.pitt.cs.cs1635.anp147.sleepycommuters.Adapter.LineAdapter;
 import edu.pitt.cs.cs1635.anp147.sleepycommuters.listener.ItemClickSupport;
 import edu.pitt.cs.cs1635.anp147.sleepycommuters.portAuthority.Line;
 

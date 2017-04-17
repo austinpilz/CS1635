@@ -1,7 +1,6 @@
 package edu.pitt.cs.cs1635.anp147.sleepycommuters;
 
 import android.content.Intent;
-import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,8 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
 import android.util.Log;
+
+import edu.pitt.cs.cs1635.anp147.sleepycommuters.Alarms.RecurringAlarm;
 
 public class RecurringEditActivity extends AppCompatActivity {
 
