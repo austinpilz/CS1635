@@ -6,29 +6,19 @@
     android:layout_height="match_parent"
     tools:context="edu.pitt.cs.cs1635.anp147.sleepycommuters.RecurringEditActivity">
 
-    <RelativeLayout
-        android:layout_width="0dp"
-        android:layout_height="495dp"
-        tools:layout_editor_absoluteX="-1dp"
-        tools:layout_editor_absoluteY="8dp">
-
-        <RelativeLayout
-            android:id="@+id/relativeLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/textView10"
-            android:layout_marginTop="13dp"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="288dp">
 
             <CheckBox
                 android:id="@+id/checkBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Monday"
-                tools:layout_editor_absoluteX="74dp"
-                tools:layout_editor_absoluteY="256dp" />
+                android:layout_marginLeft="4dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/checkBox2"
+                android:layout_marginRight="4dp"
+                app:layout_constraintHorizontal_bias="0.516"
+                android:layout_marginTop="50dp"
+                app:layout_constraintTop_toBottomOf="@+id/recNumStops" />
 
             <CheckBox
                 android:id="@+id/checkBox2"
@@ -38,8 +28,10 @@
                 android:layout_toEndOf="@+id/checkBox"
                 android:checked="true"
                 android:text="Tuesday"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="320dp" />
+                app:layout_constraintRight_toLeftOf="@+id/checkBox3"
+                android:layout_marginRight="36dp"
+                android:layout_marginTop="50dp"
+                app:layout_constraintTop_toBottomOf="@+id/recNumStops" />
 
             <CheckBox
                 android:id="@+id/checkBox3"
@@ -48,18 +40,11 @@
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/checkBox2"
                 android:text="Wednesday"
-                tools:layout_editor_absoluteX="148dp"
-                tools:layout_editor_absoluteY="1dp" />
+                android:layout_marginRight="8dp"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="50dp"
+                app:layout_constraintTop_toBottomOf="@+id/recNumStops" />
 
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/relativeLayout"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="320dp">
 
             <CheckBox
                 android:id="@+id/checkBox4"
@@ -68,8 +53,13 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:text="Thursday"
-                tools:layout_editor_absoluteX="74dp"
-                tools:layout_editor_absoluteY="352dp" />
+                app:layout_constraintRight_toLeftOf="@+id/checkBox5"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="8dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintHorizontal_bias="0.076"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox" />
 
             <CheckBox
                 android:id="@+id/checkBox5"
@@ -78,8 +68,10 @@
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/checkBox4"
                 android:text="Friday"
-                tools:layout_editor_absoluteX="74dp"
-                tools:layout_editor_absoluteY="384dp" />
+                app:layout_constraintRight_toLeftOf="@+id/checkBox6"
+                android:layout_marginRight="12dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox" />
 
             <CheckBox
                 android:id="@+id/checkBox6"
@@ -88,8 +80,10 @@
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/checkBox5"
                 android:text="Saturday"
-                tools:layout_editor_absoluteX="222dp"
-                tools:layout_editor_absoluteY="256dp" />
+                app:layout_constraintRight_toLeftOf="@+id/checkBox7"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
 
             <CheckBox
                 android:id="@+id/checkBox7"
@@ -98,9 +92,10 @@
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/checkBox6"
                 android:text="Sunday"
-                tools:layout_editor_absoluteX="222dp"
-                tools:layout_editor_absoluteY="288dp" />
-        </RelativeLayout>
+                android:layout_marginRight="3dp"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox3" />
 
         <Button
             android:id="@+id/recSave"
@@ -108,10 +103,14 @@
             android:layout_height="wrap_content"
             android:background="#4DC626"
             android:text="Save"
-            tools:layout_editor_absoluteX="99dp"
-            tools:layout_editor_absoluteY="463dp"
             android:layout_alignParentBottom="true"
-            android:layout_alignStart="@+id/recDepartTime" />
+            android:layout_alignStart="@+id/recDepartTime"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="70dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="8dp" />
 
         <Button
             android:id="@+id/recDelete"
@@ -119,10 +118,16 @@
             android:layout_height="wrap_content"
             android:background="#F14231"
             android:text="Delete"
-            tools:layout_editor_absoluteX="201dp"
-            tools:layout_editor_absoluteY="463dp"
             android:layout_alignParentBottom="true"
-            android:layout_toEndOf="@+id/recNumStops" />
+            android:layout_toEndOf="@+id/recNumStops"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox6"
+            app:layout_constraintLeft_toRightOf="@+id/recSave"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="8dp" />
 
         <TextView
             android:id="@+id/textView2"
@@ -131,7 +136,8 @@
             android:text="Alert Label:"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="16dp" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="20dp" />
 
         <TextView
             android:id="@+id/textView3"
@@ -139,11 +145,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/textView2"
-            android:layout_marginTop="22dp"
+            android:layout_marginTop="24dp"
             android:text="Departing From:"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="56dp" />
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
         <TextView
             android:id="@+id/textView10"
@@ -154,7 +160,8 @@
             android:text="Repeat:"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="265dp" />
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
         <TextView
             android:id="@+id/textView7"
@@ -162,11 +169,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/textView8"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="24dp"
             android:text="Direction:"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="141dp" />
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
         <TextView
             android:id="@+id/textView9"
@@ -174,11 +181,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/textView7"
-            android:layout_marginTop="26dp"
+            android:layout_marginTop="25dp"
             android:text="Notify Stops Before:"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="221dp" />
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
         <TextView
             android:id="@+id/textView8"
@@ -186,11 +193,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/textView6"
-            android:layout_marginTop="21dp"
+            android:layout_marginTop="24dp"
             android:text="Depart Time:"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="181dp" />
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
         <TextView
             android:id="@+id/textView6"
@@ -198,21 +205,29 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/textView3"
-            android:layout_marginTop="23dp"
+            android:layout_marginTop="24dp"
             android:text="Bus Line:"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="101dp" />
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-        <TextView
+        <EditText
             android:id="@+id/recAlertLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_toEndOf="@+id/textView8"
-            android:text="TextView"
-            tools:layout_editor_absoluteX="91dp"
-            tools:layout_editor_absoluteY="16dp" />
+            android:textSize="14dp"
+            android:text="New Alert"
+            android:inputType="text"
+            android:gravity="right"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/textView2"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintHorizontal_bias="0.89"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="8dp" />
 
         <TextView
             android:id="@+id/recDepartingFrom"
@@ -223,8 +238,13 @@
             android:layout_marginStart="12dp"
             android:layout_toEndOf="@+id/textView3"
             android:text="Example Bus Stop"
-            tools:layout_editor_absoluteX="120dp"
-            tools:layout_editor_absoluteY="56dp" />
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/textView3"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintHorizontal_bias="0.792"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/recAlertLabel" />
 
         <TextView
             android:id="@+id/recBusLine"
@@ -234,8 +254,13 @@
             android:layout_alignBottom="@+id/textView6"
             android:layout_alignEnd="@+id/textView9"
             android:text="71 A"
-            tools:layout_editor_absoluteX="74dp"
-            tools:layout_editor_absoluteY="101dp" />
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/textView6"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintHorizontal_bias="0.894"
+            android:layout_marginTop="22dp"
+            app:layout_constraintTop_toBottomOf="@+id/recDepartingFrom" />
 
         <TextView
             android:id="@+id/recDirection"
@@ -245,8 +270,13 @@
             android:layout_alignBottom="@+id/textView7"
             android:layout_alignEnd="@+id/textView9"
             android:text="Inbound"
-            tools:layout_editor_absoluteX="78dp"
-            tools:layout_editor_absoluteY="141dp" />
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/textView7"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintHorizontal_bias="0.891"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/recBusLine" />
 
         <EditText
             android:id="@+id/recDepartTime"
@@ -258,8 +288,15 @@
             android:ems="10"
             android:inputType="time"
             android:text="1:00 PM"
-            tools:layout_editor_absoluteX="99dp"
-            tools:layout_editor_absoluteY="165dp" />
+            android:textSize="14dp"
+            android:gravity="right"
+            app:layout_constraintLeft_toRightOf="@+id/textView8"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="6dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintHorizontal_bias="0.871"
+            android:layout_marginTop="7dp"
+            app:layout_constraintTop_toBottomOf="@+id/recDirection" />
 
         <EditText
             android:id="@+id/recNumStops"
@@ -270,9 +307,15 @@
             android:layout_toEndOf="@+id/recAlertLabel"
             android:ems="10"
             android:inputType="numberSigned"
+            android:gravity="right"
             android:text="2"
-            tools:layout_editor_absoluteX="144dp"
-            tools:layout_editor_absoluteY="201dp" />
-    </RelativeLayout>
+            android:textSize="14dp"
+            android:layout_marginRight="6dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/textView9"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintHorizontal_bias="0.838"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/recDepartTime" />
 
 </android.support.constraint.ConstraintLayout>

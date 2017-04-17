@@ -10,8 +10,12 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.util.Log;
 
 public class DestinationSelectActivity extends AppCompatActivity {
+
+    public static final String TAG = DestinationSelectActivity.class.getSimpleName();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,15 +29,15 @@ public class DestinationSelectActivity extends AppCompatActivity {
         LinearLayout mLinearLayout = (LinearLayout) findViewById(R.id.destinationLV);
 
         final RadioButton[] rb = new RadioButton[5];
-        RadioGroup rg = new RadioGroup(this);
+        final RadioGroup rg = new RadioGroup(this);
         rg.setOrientation(RadioGroup.VERTICAL);
         for (int i = 1; i < 5; i++) {
             rb[i] = new RadioButton(this);
             rg.addView(rb[i]);
             rb[i].setText("Destination Stop " + i);
-
         }
         mLinearLayout.addView(rg);
+
 
         Button button= (Button) findViewById(R.id.createOneTime);
         button.setOnClickListener(new View.OnClickListener() {
@@ -53,9 +57,19 @@ public class DestinationSelectActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 EditText mEdit = (EditText)findViewById(R.id.numStops);
+                int index = rg.indexOfChild(findViewById(rg.getCheckedRadioButtonId()));
+                RadioButton r = (RadioButton)  rg.getChildAt(index);
+                String destination = r.getText().toString();
+                Log.d(TAG, destination);
 
                 Intent myIntent = new Intent(DestinationSelectActivity.this, RecurringEditActivity.class);
-                myIntent.putExtra("newAlert", intent.getStringExtra("line") + " - New Alert"); //Optional parameters
+                myIntent.putExtra("newAlert"," New Alert"); //Optional parameters
+                myIntent.putExtra("line", intent.getStringExtra("line"));
+                myIntent.putExtra("stopName", intent.getStringExtra("stopName"));
+                myIntent.putExtra("destination", destination);
+
+                myIntent.putExtra("numStops", mEdit.getText().toString());
+
                 DestinationSelectActivity.this.startActivity(myIntent);
             }
         });

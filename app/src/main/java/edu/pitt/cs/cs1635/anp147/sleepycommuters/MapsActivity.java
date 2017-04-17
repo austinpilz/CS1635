@@ -142,7 +142,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //                if (marker.equals(alumniHallMarker))
 //                {
                     Intent myIntent = new Intent(MapsActivity.this, LineSelectionActivity.class);
-                    myIntent.putExtra("stopName", "temp"); //Optional parameters
+                    myIntent.putExtra("stopName", "Fifth and Thackeray"); //Optional parameters
                     MapsActivity.this.startActivity(myIntent);
 //                }
 
