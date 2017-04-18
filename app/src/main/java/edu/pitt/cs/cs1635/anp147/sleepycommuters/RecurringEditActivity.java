@@ -58,6 +58,8 @@ public class RecurringEditActivity extends AppCompatActivity {
         time = (EditText) findViewById(R.id.recDepartTime);
         direction = (TextView) findViewById(R.id.recDirection);
         numStops = (EditText) findViewById(R.id.recNumStops);
+
+
         repeat = new CheckBox[7];
         repeat[0] = (CheckBox) findViewById(R.id.checkBox);
         repeat[1] = (CheckBox) findViewById(R.id.checkBox2);
@@ -106,14 +108,22 @@ public class RecurringEditActivity extends AppCompatActivity {
         destination.setText(alarm.get_dest_stop());
         time.setText(alarm.get_time());
         sb = new StringBuilder(alarm.get_repeat());
+
+        alertName.setSelection(alertName.getText().length());
+        time.setSelection(time.getText().length());
+        numStops.setSelection(numStops.getText().length());
+
         char[] ca = sb.toString().toCharArray();
 
         for (int i = 0; i < 7; i++){
+            Log.d(TAG, String.valueOf(ca[i]));
 
             if(ca[i] == '1'){
+                Log.d(TAG, "SETTING REPEAT True");
                 repeat[i].setChecked(true);
             }
             else {
+                Log.d(TAG, "SETTING REPEAT False");
                 repeat[i].setChecked(false);
             }
         }
@@ -127,6 +137,10 @@ public class RecurringEditActivity extends AppCompatActivity {
         direction.setText("Inbound");
         numStops.setText(intent.getStringExtra("numStops"));
         destination.setText(intent.getStringExtra("destination"));
+
+        alertName.setSelection(alertName.getText().length());
+        time.setSelection(time.getText().length());
+        numStops.setSelection(numStops.getText().length());
 
     }
 
@@ -156,7 +170,7 @@ public class RecurringEditActivity extends AppCompatActivity {
             alarm.set_dest_stop(destination.getText().toString());
             alarm.set_direction("Inbound");
             alarm.set_stops_before(Integer.parseInt(numStops.getText().toString()));
-            alarm.set_repeat(sb.toString());
+            alarm.set_repeat(setSb());
             alarm.set_time(time.getText().toString());
             db.addAlarm(alarm);
         }
@@ -168,12 +182,30 @@ public class RecurringEditActivity extends AppCompatActivity {
             alarm.set_dest_stop(destination.getText().toString());
             alarm.set_direction("Outbound");
             alarm.set_stops_before(Integer.parseInt(numStops.getText().toString()));
-            alarm.set_repeat(sb.toString());
+            alarm.set_repeat(setSb());
             alarm.set_time(time.getText().toString());
             db.updateAlarm(alarm);
 
         }
 
 
+    }
+
+    private String setSb(){
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < 7; i++){
+
+            if(repeat[i].isChecked()){
+                Log.d(TAG, "SETTING REPEAT True");
+                sb.append('1');
+            }
+            else {
+                Log.d(TAG, "SETTING REPEAT False");
+                sb.append('0');
+            }
+        }
+
+        return sb.toString();
     }
 }

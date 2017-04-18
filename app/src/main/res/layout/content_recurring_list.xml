@@ -8,4 +8,8 @@
     tools:context="edu.pitt.cs.cs1635.anp147.sleepycommuters.RecurringListActivity"
     tools:showIn="@layout/activity_recurring_list">
 
+
+
+
+
 </android.support.constraint.ConstraintLayout>

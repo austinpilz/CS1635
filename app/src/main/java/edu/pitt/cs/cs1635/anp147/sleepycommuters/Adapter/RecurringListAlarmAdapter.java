@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
-import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -18,31 +18,31 @@ import edu.pitt.cs.cs1635.anp147.sleepycommuters.R;
  * Created by austinpilz on 4/17/17.
  */
 
-public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.MyViewHolder> {
+public class RecurringListAlarmAdapter extends RecyclerView.Adapter<RecurringListAlarmAdapter.MyViewHolder> {
     private List<RecurringAlarm> alarmList;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView title, genre;
-        ImageView activate;
+        Switch toggle;
 
         public MyViewHolder(View view) {
             super(view);
-            title = (TextView) view.findViewById(R.id.alarmTime);
-            genre = (TextView) view.findViewById(R.id.alarmName);
-            activate = (ImageView) view.findViewById(R.id.activate);
+            title = (TextView) view.findViewById(R.id.alarmTime2);
+            genre = (TextView) view.findViewById(R.id.alarmName2);
+            toggle = (Switch) view.findViewById(R.id.togglebutton2);
 
         }
     }
 
 
-    public AlarmAdapter(List<RecurringAlarm> lines) {
+    public RecurringListAlarmAdapter(List<RecurringAlarm> lines) {
         this.alarmList = lines;
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.alarm_list_row, parent, false);
+                .inflate(R.layout.rec_alarm_list_row, parent, false);
 
         return new MyViewHolder(itemView);
     }
@@ -52,15 +52,15 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.MyViewHolder
         RecurringAlarm alarm = alarmList.get(position);
         holder.title.setText(alarm.get_time());
         holder.genre.setText(alarm.get_alert_name());
-//        holder.activate.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if (isChecked) {
-//                    // The toggle is enabled
-//                } else {
-//                    // The toggle is disabled
-//                }
-//            }
-//        });
+        holder.toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    // The toggle is enabled
+                } else {
+                    // The toggle is disabled
+                }
+            }
+        });
     }
 
     @Override

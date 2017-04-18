@@ -17,6 +17,9 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
@@ -26,11 +29,15 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.pitt.cs.cs1635.anp147.sleepycommuters.Adapter.RecurringListAlarmAdapter;
 import edu.pitt.cs.cs1635.anp147.sleepycommuters.Alarms.RecurringAlarm;
+import edu.pitt.cs.cs1635.anp147.sleepycommuters.listener.ItemClickSupport;
+
+import static android.R.attr.value;
 
 public class RecurringListActivity extends AppCompatActivity {
 
-    private ListView lv;
+    private RecyclerView recyclerView;
     private List<RecurringAlarm> alarms;
 
     @Override
@@ -59,41 +66,33 @@ public class RecurringListActivity extends AppCompatActivity {
             }
         });
 
-        lv = (ListView) findViewById(R.id.recurringAlertList);
+        recyclerView = (RecyclerView) findViewById(R.id.recRecView);
 
+        //Pull recurring alarms from the database
         DatabaseHandler db = new DatabaseHandler(this);
+        final List<RecurringAlarm> alarms = db.getAllAlarms();
 
-        alarms = db.getAllAlarms();
+        if (alarms.size() > 0) {
 
-        // Instanciating an array list (you don't need to do this,
-        // you already have yours).
-        List<String> your_array_list = new ArrayList<String>();
-        for (RecurringAlarm alarm : alarms) {
-            your_array_list.add(alarm.get_time() + " | " + alarm.get_alert_name());
+            RecurringListAlarmAdapter alarmAdapter = new RecurringListAlarmAdapter(alarms);
+            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+            recyclerView.setLayoutManager(mLayoutManager);
+            recyclerView.setItemAnimator(new DefaultItemAnimator());
+            recyclerView.setAdapter(alarmAdapter);
+
+            ItemClickSupport.addTo(recyclerView).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+                @Override
+                public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+
+                    RecurringAlarm value = alarms.get(position);
+
+                    //CHANGE
+                    Intent newIntent = new Intent(RecurringListActivity.this, RecurringEditActivity.class);
+                    newIntent.putExtra("alertName", value.get_alert_name());
+                    startActivity(newIntent);
+                }
+            });
         }
-
-        // This is the array adapter, it takes the context of the activity as a
-        // first parameter, the type of list view as a second parameter and your
-        // array as a third parameter.
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
-                this,
-                android.R.layout.simple_list_item_1,
-                your_array_list );
-
-        lv.setAdapter(arrayAdapter);
-
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-            @Override
-            public void onItemClick(AdapterView<?> adapter, View v, int position,
-                                    long arg3){
-                String value = (String)adapter.getItemAtPosition(position);
-                String name = getName(value);
-                Intent newIntent = new Intent(RecurringListActivity.this,RecurringEditActivity.class);
-                newIntent.putExtra("alertName", name);
-                startActivity(newIntent);
-            }
-        });
-
         if (intent.hasExtra("recSaved"))
         {
             AlertDialog alertDialog = new AlertDialog.Builder(RecurringListActivity.this).create();
@@ -157,7 +156,7 @@ public class RecurringListActivity extends AppCompatActivity {
 
         mBuilder.setContentIntent(pendingIntent);
 
-        mBuilder.setSmallIcon(R.drawable.ic_notifications_black_24dp);
+        mBuilder.setSmallIcon(R.drawable.ic_home_black_24dp);
         mBuilder.setContentTitle("Sleepy Commuter");
         mBuilder.setContentText("Leave your house to catch that bus!");
 

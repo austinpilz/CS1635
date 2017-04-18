@@ -244,12 +244,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         //Create the intent that’ll fire when the user taps the notification//
 
-        Intent intent = new Intent(MapsActivity.this, NavigationDrawerActivity.class);
+        Intent intent = new Intent(MapsActivity.this, MapsActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
 
         mBuilder.setContentIntent(pendingIntent);
 
-        mBuilder.setSmallIcon(R.drawable.ic_notifications_black_24dp);
+        mBuilder.setSmallIcon(R.drawable.ic_dashboard_black_24dp);
         mBuilder.setContentTitle("Sleepy Commuter");
         mBuilder.setContentText("Get off the bus!");
 

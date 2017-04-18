@@ -54,7 +54,7 @@ public class LineSelectionActivity extends AppCompatActivity {
         lineArray.add(new Line("71", "B", "Murrysville"));
         lineArray.add(new Line("71", "C", "Robinson"));
         lineArray.add(new Line("71", "D", "Bellevue"));
-        lineArray.add(new Line("61", "A", "Waterfront"));
+        lineArray.add(new Line("61", "A", "Waterfrofnt"));
         lineArray.add(new Line("61", "B", "Southside"));
         lineArray.add(new Line("61", "C", "Oakland"));
         lineArray.add(new Line("61", "D", "Narnia"));

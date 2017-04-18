@@ -14,6 +14,9 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DestinationSelectActivity extends AppCompatActivity {
 
     public static final String TAG = DestinationSelectActivity.class.getSimpleName();
@@ -38,13 +41,25 @@ public class DestinationSelectActivity extends AppCompatActivity {
 
         LinearLayout mLinearLayout = (LinearLayout) findViewById(R.id.destinationLV);
 
-        final RadioButton[] rb = new RadioButton[5];
+        final RadioButton[] rb = new RadioButton[11];
         final RadioGroup rg = new RadioGroup(this);
         rg.setOrientation(RadioGroup.VERTICAL);
-        for (int i = 1; i < 5; i++) {
+        ArrayList<String> stops = new ArrayList();
+        stops.add("East Liberty Station");
+        stops.add("Liberty Ave at 10th St");
+        stops.add("Smithfield St at Sixth Ave");
+        stops.add("Penn Station");
+        stops.add("Hay St Ramp");
+        stops.add("Fifth Ave at N Craig St");
+        stops.add("Fifth Ave at Robinson St");
+        stops.add("Fifth Ave at Oakland Ave");
+        stops.add("Fifth Ave at Craft Ave");
+
+
+        for (int i = 0; i < stops.size(); i++) {
             rb[i] = new RadioButton(this);
             rg.addView(rb[i]);
-            rb[i].setText("Destination Stop " + i);
+            rb[i].setText(stops.get(i));
         }
         mLinearLayout.addView(rg);
 
@@ -54,6 +69,7 @@ public class DestinationSelectActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 EditText mEdit = (EditText)findViewById(R.id.numStops);
+                mEdit.setSelection(mEdit.getText().length());
 
                 Intent myIntent = new Intent(DestinationSelectActivity.this, MapsActivity.class);
                 myIntent.putExtra("oneTimeCreated", ""); //Optional parameters
@@ -67,9 +83,18 @@ public class DestinationSelectActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 EditText mEdit = (EditText)findViewById(R.id.numStops);
+                mEdit.setSelection(mEdit.getText().length());
                 int index = rg.indexOfChild(findViewById(rg.getCheckedRadioButtonId()));
                 RadioButton r = (RadioButton)  rg.getChildAt(index);
-                String destination = r.getText().toString();
+                String destination;
+                if(index != -1) {
+                    destination = r.getText().toString();
+                }
+                else {
+                    destination = "Alumni Hall";
+                }
+
+
                 Log.d(TAG, destination);
 
                 Intent myIntent = new Intent(DestinationSelectActivity.this, RecurringEditActivity.class);
@@ -77,6 +102,7 @@ public class DestinationSelectActivity extends AppCompatActivity {
                 myIntent.putExtra("line", intent.getStringExtra("line"));
                 myIntent.putExtra("stopName", intent.getStringExtra("stopName"));
                 myIntent.putExtra("destination", destination);
+
 
                 myIntent.putExtra("numStops", mEdit.getText().toString());
 
