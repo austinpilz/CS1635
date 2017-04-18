@@ -80,7 +80,9 @@ public class RecurringEditActivity extends AppCompatActivity {
         buttonDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                deleteAlarm(alarm);
+                if(intent.hasExtra("alertName")) {
+                    deleteAlarm(alarm);
+                }
                 Intent myIntent = new Intent(RecurringEditActivity.this, RecurringListActivity.class);
                 myIntent.putExtra("recDelete", ""); //Optional parameters
                 RecurringEditActivity.this.startActivity(myIntent);
