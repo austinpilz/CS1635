@@ -35,6 +35,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.StreetViewPanoramaCamera;
 
 import java.util.Map;
 
@@ -76,7 +77,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .setInterval(30 * 1000)        // 10 seconds, in milliseconds
                 .setFastestInterval(10 * 1000); // 1 second, in milliseconds
 
+        //send good job notification
+        DatabaseHandler db = new DatabaseHandler(this);
+        int c = db.getAlarmsCount();
+        Log.d(TAG, String.valueOf(c));
 
+        if(c%5==0 && c/5 != 0) {
+            Log.d(TAG, String.valueOf(c));
+
+            sendNotificationGoodJob();
+        }
         //Intents for toast messages
         final Intent intent = getIntent();
         if (intent.hasExtra("oneTimeCreated"))
@@ -122,8 +132,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     sendNotificationGetOff();
                 }
             }, 5000);
-        }
 
+
+        }
 
 
     }
@@ -249,7 +260,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         mBuilder.setContentIntent(pendingIntent);
 
-        mBuilder.setSmallIcon(R.drawable.ic_dashboard_black_24dp);
+        mBuilder.setSmallIcon(R.drawable.ic_directions_walk_black_24dp);
         mBuilder.setContentTitle("Sleepy Commuter");
         mBuilder.setContentText("Get off the bus!");
 
@@ -259,4 +270,28 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         mNotificationManager.notify(003, mBuilder.build());
     }
+
+    public void sendNotificationGoodJob() {
+
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(this);
+
+        //Create the intent that’ll fire when the user taps the notification//
+
+        Intent intent = new Intent(MapsActivity.this, MapsActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+
+        mBuilder.setContentIntent(pendingIntent);
+
+        mBuilder.setSmallIcon(R.drawable.ic_thumb_up_black_24dp);
+        mBuilder.setContentTitle("Good Job!");
+        mBuilder.setContentText("You saved some icebergs for penguins!");
+
+        NotificationManager mNotificationManager =
+
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        mNotificationManager.notify(005, mBuilder.build());
+    }
+
 }

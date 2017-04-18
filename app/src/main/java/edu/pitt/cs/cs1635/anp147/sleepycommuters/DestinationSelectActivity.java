@@ -15,7 +15,6 @@ import android.widget.TextView;
 import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class DestinationSelectActivity extends AppCompatActivity {
 

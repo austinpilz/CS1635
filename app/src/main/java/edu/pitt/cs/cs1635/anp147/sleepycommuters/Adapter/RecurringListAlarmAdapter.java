@@ -7,8 +7,6 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.ToggleButton;
-
 import java.util.List;
 
 import edu.pitt.cs.cs1635.anp147.sleepycommuters.Alarms.RecurringAlarm;

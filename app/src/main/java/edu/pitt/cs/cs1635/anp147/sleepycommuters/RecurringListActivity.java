@@ -1,16 +1,12 @@
 package edu.pitt.cs.cs1635.anp147.sleepycommuters;
 
-import android.app.AlarmManager;
-import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
-import android.os.SystemClock;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.ActionBar;
@@ -22,18 +18,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import edu.pitt.cs.cs1635.anp147.sleepycommuters.Adapter.RecurringListAlarmAdapter;
 import edu.pitt.cs.cs1635.anp147.sleepycommuters.Alarms.RecurringAlarm;
 import edu.pitt.cs.cs1635.anp147.sleepycommuters.listener.ItemClickSupport;
-
-import static android.R.attr.value;
 
 public class RecurringListActivity extends AppCompatActivity {
 
@@ -178,7 +167,7 @@ public class RecurringListActivity extends AppCompatActivity {
 
         mBuilder.setContentIntent(pendingIntent);
 
-        mBuilder.setSmallIcon(R.drawable.ic_notifications_black_24dp);
+        mBuilder.setSmallIcon(R.drawable.ic_airport_shuttle_black_24dp);
         mBuilder.setContentTitle("Sleepy Commuter");
         mBuilder.setContentText("The bus is 2 stops away!");
 

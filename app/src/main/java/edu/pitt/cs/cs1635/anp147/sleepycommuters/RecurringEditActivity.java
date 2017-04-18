@@ -1,8 +1,6 @@
 package edu.pitt.cs.cs1635.anp147.sleepycommuters;
 
 import android.content.Intent;
-import android.icu.text.DateFormat;
-import android.icu.text.SimpleDateFormat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,10 +11,6 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.util.Log;
-
-import org.w3c.dom.Text;
-
-import java.util.Date;
 
 import edu.pitt.cs.cs1635.anp147.sleepycommuters.Alarms.RecurringAlarm;
 
